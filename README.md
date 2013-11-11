@@ -24,7 +24,7 @@ MARC4J.Net provides readers and writers for MARC and MARCXML. A IMarcReader impl
 
 Nuget package available here nuget.org/packages/MARC4J.Net:
 
-    <code>Install-Package MARC4J.Net </code>
+    Install-Package MARC4J.Net
 
 <h4>About MARC format</h4>
 
