@@ -1,0 +1,7 @@
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.Test.dll
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.Test.pdb
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.dll
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.pdb
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.csprojResolveAssemblyReference.cache
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.dll
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.pdb
