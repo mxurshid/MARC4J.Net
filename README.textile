@@ -10,12 +10,12 @@ Features
 
 The MARC4J.Net library includes:
 
-    An easy to use interface that can handle large record sets.
-    Readers and writers for both MARC and MARCXML.
-    A MARC record object model (like DOM for XML) for in-memory editing of MARC records.
-    Support for data conversions from MARC-8 ANSEL, ISO5426 or ISO6937 to UCS/Unicode and back.
-    A forgiving reader which can handle and recover from a number of structural or encoding errors in records.
-    Support for conversions between MARC and MARCXML.
+	An easy to use interface that can handle large record sets.
+	Readers and writers for both MARC and MARCXML.
+	A MARC record object model (like DOM for XML) for in-memory editing of MARC records.
+	Support for data conversions from MARC-8 ANSEL, ISO5426 or ISO6937 to UCS/Unicode and back.
+	A forgiving reader which can handle and recover from a number of structural or encoding errors in records.
+	Support for conversions between MARC and MARCXML.
 
 MARC4J.Net provides readers and writers for MARC and MARCXML. A IMarcReader implementation parses input data and provides an iterator over a collection of IRecord objects. The record object model is also suitable for in-memory editing of MARC records, just as DOM is used for XML editing purposes. Using a IMarcWriter implementation it is possible to create MARC or MARCXML.
 
