@@ -66,7 +66,7 @@ Reading with MarcPermissiveStreamReader(for bad Marc files):
     
 Writing:
 
-    using (var fs2 = new FileStream(@"C:\Users\shhurshid\Desktop\writed.mrc", FileMode.OpenOrCreate))
+    using (var fs2 = new FileStream("Marc file location", FileMode.OpenOrCreate))
     {
         using (var writer = new MarcStreamWriter(fs2, "UTF-8"))
         {
