@@ -20,7 +20,7 @@ The MARC4J.Net library includes:
 
 MARC4J.Net provides readers and writers for MARC and MARCXML. A IMarcReader implementation parses input data and provides an iterator over a collection of IRecord objects. The record object model is also suitable for in-memory editing of MARC records, just as DOM is used for XML editing purposes. Using a IMarcWriter implementation it is possible to create MARC or MARCXML.
 
-<h4>Intall</h4>
+<h4>Install</h4>
 
 Nuget package available here nuget.org/packages/MARC4J.Net:
 
