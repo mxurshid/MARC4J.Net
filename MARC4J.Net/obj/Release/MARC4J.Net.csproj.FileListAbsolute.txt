@@ -1,0 +1,7 @@
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\bin\Release\MARC4J.Net.XML
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\bin\Release\MARC4J.Net.dll
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\bin\Release\MARC4J.Net.pdb
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\obj\Release\MARC4J.Net.Properties.Resources.resources
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\obj\Release\MARC4J.Net.csproj.GenerateResource.Cache
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\obj\Release\MARC4J.Net.dll
+D:\Projects\Github\MARC4J.Net\MARC4J.Net\obj\Release\MARC4J.Net.pdb

@@ -1,0 +1,9 @@
+c:\users\shhurshid\documents\visual studio 2013\Projects\MARC4J.Net\MARC4J.Net\obj\Debug\MARC4J.Net.csprojResolveAssemblyReference.cache
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\obj\Debug\MARC4J.Net.Properties.Resources.resources
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\obj\Debug\MARC4J.Net.csproj.GenerateResource.Cache
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\bin\Debug\MARC4J.Net.dll
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\bin\Debug\MARC4J.Net.pdb
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\obj\Debug\MARC4J.Net.dll
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\obj\Debug\MARC4J.Net.pdb
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\bin\Debug\Newtonsoft.Json.dll
+C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net\bin\Debug\Newtonsoft.Json.xml

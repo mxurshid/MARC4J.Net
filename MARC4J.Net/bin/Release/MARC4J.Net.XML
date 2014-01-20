@@ -1,0 +1,1441 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MARC4J.Net</name>
+    </assembly>
+    <members>
+        <member name="T:MARC4J.Net.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.Properties.Resources.codetables">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+            &lt;codeTables&gt;
+            	&lt;codeTable name=&quot;Basic and Extended Latin&quot; date=&quot;January 2000&quot; number=&quot;1&quot;&gt;
+            		&lt;note&gt;The first column in this table contains the MARC-8 code (in hex) for
+                 the character as coming from the G0 graphic set, the second column
+                 contains the MARC-8 code (in hex) for the character as coming from the G1
+                 graphic set, the third column contains the UCS/Unicode 16-bit code (in
+                 hex), the fourth column contains the UTF-8 code (in hex) for the UCS
+                 characters [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:MARC4J.Net.Properties.Resources.codetablesnocjk">
+             <summary>
+               Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+            &lt;codeTables&gt;
+              &lt;codeTable name=&quot;Basic and Extended Latin&quot; date=&quot;January 2000&quot; number=&quot;1&quot;&gt;
+                &lt;note&gt;The first column in this table contains the MARC-8 code (in hex) for
+                the character as coming from the G0 graphic set, the second column
+                contains the MARC-8 code (in hex) for the character as coming from the G1
+                graphic set, the third column contains the UCS/Unicode 16-bit code (in
+                hex), the fourth column contains the UTF-8 code (in hex) for the UCS
+                characters,  [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="F:MARC4J.Net.Constants.RT">
+            RECORD TERMINATOR 
+        </member>
+        <member name="F:MARC4J.Net.Constants.FT">
+            FIELD TERMINATOR 
+        </member>
+        <member name="F:MARC4J.Net.Constants.US">
+            SUBFIELD DELIMITER 
+        </member>
+        <member name="F:MARC4J.Net.Constants.BLANK">
+            BLANK 
+        </member>
+        <member name="F:MARC4J.Net.Constants.MARCXML_NS_URI">
+            NS URI 
+        </member>
+        <member name="F:MARC4J.Net.Constants.MARC_8_ENCODING">
+            MARC-8 ANSEL ENCODING *
+        </member>
+        <member name="F:MARC4J.Net.Constants.ISO5426_ENCODING">
+            ISO5426 ENCODING *
+        </member>
+        <member name="F:MARC4J.Net.Constants.ISO6937_ENCODING">
+            ISO6937 ENCODING *
+        </member>
+        <member name="F:MARC4J.Net.Error.FATAL">
+            <summary>
+            FATAL is the most severe error, it is usually set in conjunction with throwing an
+            exception, generally no record is returned when a FATAL error occurs.  Although in 
+            some instances (a record with a field > 9999 bytes long) a record will be returned 
+            that can be used, but it cannot be written back out without causing an error.
+             </summary>
+        </member>
+        <member name="F:MARC4J.Net.Error.MAJOR_ERROR">
+            <summary>
+            MAJOR_ERROR indicates that a serious problem existed with the record, such as a 
+            malformed directory or an invalid subfield tag, or an encoding error where missing 
+            data had to be inferred through some heuristic process.  This indicates that 
+            although a record is returned, you cannot be sure that the record is not corrupted.
+            </summary>
+        </member>
+        <member name="F:MARC4J.Net.Error.MINOR_ERROR">
+            <summary>
+            MINOR_ERROR indicates that a less serious problem existed with the record, such as 
+            a mismatch between the directory stated field sizes and the actual field sizes, 
+            or an encoding error where extraneous data had to be discarded to correctly 
+            interpret the data.  
+            </summary>
+        </member>
+        <member name="F:MARC4J.Net.Error.ERROR_TYPO">
+            <summary>
+            ERROR_TYPO indicates that an even less severe problem was found with the record,
+            such as the record leader ends with characters other than "4500" or a field tag 
+            contains non-numeric characters the record contains a html-style entity reference 
+            such as &amp; or &quot; which was replaced with the unescaped version. 
+            </summary>
+        </member>
+        <member name="F:MARC4J.Net.Error.INFO">
+            <summary>
+            INFO is used to pass information about the record translation process.  It does 
+            not indicate an error.  It usually will occur when a defaultEncoding value of "BESTGUESS"
+            is passed in.  INFO statements are generated to indicate which character encoding was 
+            determined to be the best fit for the data, and why.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Error.#ctor(System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Error
+            </summary>
+            <param name="recordID"></param>
+            <param name="field"></param>
+            <param name="subfield"></param>
+            <param name="severity"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:MARC4J.Net.Error.GetSeverityMsg(System.Int32)">
+            <summary>
+            Provides a descriptive string representation of the severity level.
+            
+            <returns>
+            a descriptive string representation of the severity level
+            </returns>
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Error.ToString">
+            <summary>
+            Formats the error message for display
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.HasErrors">
+             <summary>
+             Returns true if any errors (or warnings) were encountered in processing the 
+             current record.  Note that if only INFO level messages are encountered for a 
+             given record, this method will return false.
+             
+            @return bool - The highest error severity level encountered for the current record.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.GetMaxSeverity">
+             <summary>
+             Returns the highest error severity level encountered in processing the current record.
+             
+            @return int - The highest error severity level encountered for the current record.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.GetErrors">
+             <summary>
+             Returns a list of all of the errors encountered in processing the current record.
+             
+            @return List - A list of all of the errors encountered for the current record.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.Reset">
+            <summary>
+            Resets the list of errors to empty. This should be called at the beginning of 
+            processing of each record.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.AddError(System.String,System.String,System.String,System.Int32,System.String)">
+             <summary>
+             Logs an error message using the stated severity level.  Uses the values passed  
+             in id, field, and subfield to note the location of the error.
+            
+            @param id - the record ID of the record currently being processed
+            @param field - the tag of the field currently being processed
+            @param subfield - the subfield tag of the subfield currently being processed
+            @param severity - An indication of the relative severity of the error that was 
+            						encountered.
+            @param message - A descriptive message about the error that was encountered.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.AddError(System.Int32,System.String)">
+             <summary>
+             Logs an error message using the stated severity level.  Uses the values stored 
+             in curRecordID, curField, and curSubfield to note the location of the error.
+            
+            @param severity - An indication of the relative severity of the error that was 
+                                 encountered.
+            @param message - A descriptive message about the error that was encountered.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.ErrorHandler.AddErrors(System.Collections.Generic.ICollection{MARC4J.Net.Error})">
+             <summary>
+             Copys a List of errors into the current error handler
+            
+            @param newErrors - A list of Errors.
+            @param message - A descriptive message about the error that was encountered.
+             </summary>
+        </member>
+        <member name="P:MARC4J.Net.ErrorHandler.CurRecordID">
+             <summary>
+             Sets the record ID to be stored for subsequent error messages that are logged
+             If any previous messages are stored for the current record that don't have a 
+             stored record ID, set the value for those entries to this value also.
+            
+             @param recordID - the record ID of the record currently being processed
+             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:MARC4J.Net.ErrorHandler.CurField" -->
+        <member name="P:MARC4J.Net.ErrorHandler.CurSubfield">
+             <summary>
+             Sets the subfield tag to be stored for subsequent error messages that are logged
+            
+             @param curSubfield - the subfield tag of the subfield currently being processed
+             </summary>
+        </member>
+        <member name="T:MARC4J.Net.MarcCombiningReader">
+            <summary>
+            Binary Marc records have a maximum size of 99999 bytes.  In the data dumps from 
+            the Sirsi/Dynix Virgo system if a record with all of its holdings information 
+            attached would be greater that that size, the records is written out multiple
+            times with each subsequent record containing a subset of the total holdings information.
+            This class reads ahead to determine when the next record in a Marc file is actually 
+            a continuation of the same record.   When this occurs, the holdings information in the
+            next record is appended to/merged with the in-memory Marc record representation already 
+            read. 
+            </summary>
+        </member>
+        <member name="T:MARC4J.Net.IMarcReader">
+            <summary>
+            Implement this interface to provide an iterator over a collection of
+            <code>Record</code> objects.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MarcCombiningReader.#ctor(MARC4J.Net.IMarcReader,System.String,System.String,System.String)">
+            <summary>
+            Constructor for a "combining" Marc reader, that looks ahead at the Marc file to determine 
+            when the next record is a continuation of the currently read record.  
+            </summary>
+            <param name="reader">The Lower level MarcReader that returns Marc4J.Net Record objects that are read from a Marc file.</param>
+            <param name="idsToMerge">string representing a regular expression matching those fields to be merged for continuation records.</param>
+            <param name="leftControlField">string representing a control field in the current record to use for matching purposes (null to default to 001).</param>
+            <param name="rightControlField">string representing a control field in the next record to use for matching purposes (null to default to 001).</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcCombiningReader.#ctor(MARC4J.Net.IMarcReader,MARC4J.Net.ErrorHandler,MARC4J.Net.ErrorHandler,System.String,System.String,System.String)">
+            <summary>
+            Constructor for a "combining" Marc reader, that looks ahead at the Marc file to determine 
+            when the next record is a continuation of the currently read record.  Because this reader 
+            needs to have two records in memory to determine when the subsequent record is a continuation,
+            if Error Handling is being performed, this constructor needs to be used, so that the errors 
+            from the "next" record are not appended to the results for the "current" record.
+            <para>Call this constructor in the following way:                                                          </para>
+            <para>         ErrorHandler errors2 = errors;                                                              </para>
+            <para>         errors = new ErrorHandler();                                                                </para>
+            <para>         reader = new MarcCombiningReader(reader, errors, errors2, combineConsecutiveRecordsFields); </para>
+            </summary>
+            <param name="reader">The Lower level MarcReader that returns Marc4J.Net Record objects that are read from a Marc file.</param>
+            <param name="currentErrors">ErrorHandler Object to use for attaching errors to a record.</param>
+            <param name="nextErrors">ErrorHandler Object that was passed into the lower level IMarcReader</param>
+            <param name="idsToMerge">string representing a regular expression matching those fields to be merged for continuation records.</param>
+            <param name="leftControlField">string representing a control field in the current record to use for matching purposes (null to default to 001).</param>
+            <param name="rightControlField">string representing a control field in the next record to use for matching purposes (null to default to 001).</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcCombiningReader.FindControlField(MARC4J.Net.MARC.IRecord,System.String)">
+            <summary>
+            Support method to find a specific control field within a record and return
+            its contents as a string.
+            </summary>
+            <param name="record">record to search</param>
+            <param name="tag">tag number to search for</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MarcCombiningReader.RecordsMatch(MARC4J.Net.MARC.IRecord,MARC4J.Net.MARC.IRecord)">
+            <summary>
+             Support method to detect if two records match.
+            </summary>
+            <param name="left">left side of the comparison (current record)</param>
+            <param name="right">right side of the comparison (next record)</param>
+            <returns></returns>
+        </member>
+        <member name="T:MARC4J.Net.MarcDirStreamReader">
+            <summary>
+            A Marc reader which instead of handling a single file of MARC records
+            it handles a directory, which it will scan for all .mrc files, and 
+            iterate through all of them in turn.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.#ctor(System.String)">
+            <summary>
+            Constructs an instance that traverses the directory specified in the parameter.
+            </summary>
+            <param name="dirName">The path of the directory from which to read all of the .mrc files</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.#ctor(System.IO.DirectoryInfo)">
+            <summary>
+            Constructs an instance that traverses the directory specified in the parameter.
+            </summary>
+            <param name="dir">The path of the directory from which to read all of the .mrc files</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Constructs an instance that traverses the directory specified in the parameter.
+            Takes the values passed in for permissive and convertToUTF8 and passes them on 
+            to each of the MarcPermissiveStreamReader that it creates.
+            </summary>
+            <param name="dirName">The path of the directory from which to read all of the .mrc files</param>
+            <param name="permissive">Set to true to specify that reader should try to handle and recover from errors in the input.</param>
+            <param name="convertToUTF8">Set to true to specify that reader should convert the records being read to UTF-8 encoding as they are being read.</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.#ctor(System.IO.DirectoryInfo,System.Boolean,System.Boolean)">
+            <summary>
+            Constructs an instance that traverses the directory specified in the parameter.
+            Takes the values passed in for permissive and convertToUTF8 and passes them on 
+            to each of the MarcPermissiveStreamReader that it creates.
+            </summary>
+            <param name="dir">The path of the directory from which to read all of the .mrc files</param>
+            <param name="permissive">Set to true to specify that reader should try to handle and recover from errors in the input.</param>
+            <param name="convertToUTF8">Set to true to specify that reader should convert the records being read to UTF-8 encoding as they are being read.</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.#ctor(System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Constructs an instance that traverses the directory specified in the parameter.
+            Takes the values passed in for permissive and convertToUTF8 and passes them on 
+            to each of the MarcPermissiveStreamReader that it creates.
+            </summary>
+            <param name="dirName">The path of the directory from which to read all of the .mrc files</param>
+            <param name="permissive">Set to true to specify that reader should try to handle and recover from errors in the input.</param>
+            <param name="convertToUTF8">Set to true to specify that reader should convert the records being read to UTF-8 encoding as they are being read.</param>
+            <param name="defaultEncoding">Specifies the character encoding that the records being read are presumed to be in..</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.#ctor(System.IO.DirectoryInfo,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Constructs an instance that traverses the directory specified in the parameter.
+            Takes the values passed in for permissive and convertToUTF8 and passes them on 
+            to each of the MarcPermissiveStreamReader that it creates.
+            </summary>
+            <param name="dir">The path of the directory from which to read all of the .mrc files</param>
+            <param name="permissive">Set to true to specify that reader should try to handle and recover from errors in the input.</param>
+            <param name="convertToUTF8">Set to true to specify that reader should convert the records being read to UTF-8 encoding as they are being read.</param>
+            <param name="defaultEncoding">Specifies the character encoding that the records being read are presumed to be in..</param>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.Next">
+            <summary>
+            Returns the next record in the iteration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MarcDirStreamReader.MoveNext">
+            <summary>
+            Returns true if the iteration has more records, false otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MarcException.#ctor">
+            Create a new <code>MarcException</code> with no detail mesage.
+        </member>
+        <member name="M:MARC4J.Net.MarcException.#ctor(System.String)">
+            Create a new <code>MarcException</code> with the <code>String</code>
+            specified as an error message.
+            
+            @param message
+                     information about the cause of the exception
+        </member>
+        <member name="M:MARC4J.Net.MarcException.#ctor(System.String,System.Exception)">
+            Create a new <code>MarcException</code> with the given
+            <code>Exception</code> base cause and detail message.
+            
+            @param message
+                     information about the cause of the exception
+            @param ex
+                     the nested exception that caused this exception
+        </member>
+        <member name="T:MARC4J.Net.Converter.CharConverter">
+            <summary>
+            Extend this class to create a character converter.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.CharConverter.Convert(System.Char[])">
+            <summary>
+            The method that needs to be implemented in a subclass to create a CharConverter.
+            Receives a data element extracted from a record as a array of characters, and 
+            converts that data and returns the result as a <c>String</c> object.
+            </summary>
+            <param name="dataElement">the data to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.CharConverter.Convert(System.Byte[])">
+            <summary>
+            Alternate method for performing a character conversion.  Receives the incoming
+            as a byte array, converts the bytes to characters, and calls the above convert method
+            which must be implemented in the subclass.
+            </summary>
+            <param name="dataElement">the data to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.CharConverter.Convert(System.String)">
+            <summary>
+             Alternate method for performing a character conversion.  Receives the incoming
+             as a String, converts the String to a character array, and calls the above convert
+             method which must be implemented in the subclass.
+            </summary>
+            <param name="dataElement">the data to convert</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.CharConverter.OutputsUnicode">
+            <summary>
+            Should return true if the CharConverter outputs Unicode encoded characters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MARC4J.Net.Converter.AnselToUnicode">
+            <summary>
+            <para/>
+            A utility to convert MARC-8 data to non-precomposed UCS/Unicode.
+            <para/>
+            The MARC-8 to Unicode mapping used is the version with the March 2005
+            revisions.
+            <para/>
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.OutputsUnicode">
+            <summary>
+            Should return true if the CharConverter outputs Unicode encoded characters
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.#ctor">
+            <summary>
+             Creates a new instance and loads the MARC4J.Net supplied
+             conversion tables based on the official LC tables.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.#ctor(System.Boolean)">
+            <summary>
+            Creates a new instance and loads the MARC4J.Net supplied
+            conversion tables based on the official LC tables.
+            </summary>
+            <param name="loadMultibyte"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.#ctor(MARC4J.Net.ErrorHandler)">
+            <summary>
+            Creates a new instance and loads the MARC4J.Net supplied
+            conversion tables based on the official LC tables.
+            </summary>
+            <param name="errorList"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.#ctor(MARC4J.Net.ErrorHandler,System.Boolean)">
+            <summary>
+            Creates a new instance and loads the MARC4J.Net supplied
+            conversion tables based on the official LC tables.
+            </summary>
+            <param name="errorList"></param>
+            <param name="loadMultibyte"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.#ctor(System.String)">
+            <summary>
+            Constructs an instance with the specified pathname.
+            Use this constructor to create an instance with a customized code table
+            mapping. The mapping file should follow the structure of LC's XML MARC-8
+            to Unicode mapping (see:
+            http://www.loc.gov/marc/specifications/codetables.xml).
+            </summary>
+            <param name="pathname"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.#ctor(System.IO.Stream)">
+            <summary>
+            Constructs an instance with the specified input stream.
+            
+            Use this constructor to create an instance with a customized code table
+            mapping. The mapping file should follow the structure of LC's XML MARC-8
+            to Unicode mapping (see:
+            http://www.loc.gov/marc/specifications/codetables.xml).
+            </summary>
+            <param name="?"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.LoadMultibyte">
+            <summary>
+            Loads the entire mapping (including multibyte characters) from the Library of Congress.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.AnselToUnicode.Convert(System.Char[])">
+            <summary>
+            Converts MARC-8 data to UCS/Unicode.
+            </summary>
+            <param name="data">the MARC-8 data in an array of char</param>
+            <returns>the UCS/Unicode data</returns>
+        </member>
+        <member name="T:MARC4J.Net.Converter.CodeTable">
+            <summary>
+            <c>CodeTable</c> defines a data structure to facilitate
+            <c>AnselToUnicode</c> char conversion.
+            </summary>
+        </member>
+        <member name="F:MARC4J.Net.Converter.CodeTableXmlReader.isocode">
+            Data element identifier 
+        </member>
+        <member name="T:MARC4J.Net.Converter.Iso5426ToUnicode">
+            <summary>
+            A utility to convert UNIMARC data to UCS/Unicode
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.Iso5426ToUnicode.Convert(System.Char[])">
+            <summary>
+            Converts UNIMARC (ISO 5426 charset) data to UCS/Unicode.
+            </summary>
+            <param name="data">the UNIMARC data in an array of char</param>
+            <returns>the UCS/Unicode data</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.Iso5426ToUnicode.OutputsUnicode">
+            <summary>
+            Should return true if the CharConverter outputs Unicode encoded characters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MARC4J.Net.Converter.Iso6937ToUnicode">
+            <summary>
+            A utility to convert ISO 6937 data to UCS/Unicode.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.Iso6937ToUnicode.Convert(System.Char[])">
+            <summary>
+            Converts ISO 6937 data to UCS/Unicode.
+            </summary>
+            <param name="data">the ISO 6937 data in an array of char</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.Iso6937ToUnicode.OutputsUnicode">
+            <summary>
+            Should return true if the CharConverter outputs Unicode encoded characters
+            </summary>
+            <returns>whether the CharConverter returns Unicode encoded characters</returns>
+        </member>
+        <member name="T:MARC4J.Net.Converter.ReverseCodeTable">
+            <summary>
+            <c>ReverseCodeTable</c> is a set of methods to facilitate Unicode to MARC-8
+            char conversion, it tracks the current charset encodings that are in use, 
+            and defines abstract methods IsCombining() and GetCharTable()which must be overridden
+            in a sub-class to actually implement the Unicode to MARC8 char conversion.  
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.IsCombining(System.Char)">
+            <summary>
+            Abstract method that must be defined in a sub-class, used in the conversion of Unicode
+            to MARC-8.  For a given Unicode char, determine whether that char is a combining
+            char (an accent mark or diacritic)  
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if char is a combining char</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetCharTable(System.Char)">
+            Abstract method that must be defined in a sub-class, used in the conversion of Unicode
+            to MARC-8. For a given Unicode char, return ALL of the possible MARC-8 representations
+            of that char.  These are represented in a IDictionary where the key is the ISOcode of the 
+            char set in MARC-8 that the Unicode char appears in, and the value is the MARC-8
+            char value in that char set that encodes the given Unicode char.
+             
+            @param c - the UCS/Unicode char to look up
+            @return IDictionary - contains all of the possible MARC-8 representations of that Unicode char
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.#ctor">
+            <summary>
+            Default constructor for the abstract class, allocates and initializes the structures that
+            are used to track the current char sets in use. 
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.Init">
+            <summary>
+            Initializes the ReverseCodeTable state to the default value for encoding a field.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetPreviousG0">
+            <summary>
+            Routine used for tracking which char set is currently in use for chars less than 0x80
+            </summary>
+            <returns>the current G0 char set in use.</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetPreviousG1">
+            <summary>
+            Routine used for tracking which char set is currently in use for chars greater than 0x80
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.SetPreviousG0(System.Int32)">
+            <summary>
+            Routine used for changing which char set is currently in use for chars less than 0x80
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.SetPreviousG1(System.Int32)">
+            <summary>
+            Routine used for changing which char set is currently in use for chars greater than 0x80
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.CodeTableHash(System.Char)">
+            <summary>
+            Performs a lookup of the MARC8 translation of a given Unicode char.  Caches the results 
+            in lastLookupKey and lastLookupValue so that subsequent lookups made in processing the same
+            char will proceed more quickly.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>contains all of the possible MARC-8 representations of that Unicode char</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.CharHasMatch(System.Char)">
+            <summary>
+            Checks whether a MARC8 translation of a given Unicode char exists.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if there is one or more MARC-8 representation of the given Unicode char.</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.InPreviousG0CharEntry(System.Char)">
+            <summary>
+            Checks whether a MARC8 translation of a given Unicode char exists in the char set currently
+            loaded as the G0 char set.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if there is a MARC-8 representation of the given Unicode char in the current G0 char set</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.InPreviousG1CharEntry(System.Char)">
+            <summary>
+            Checks whether a MARC8 translation of a given Unicode char exists in the char set currently 
+            loaded as the G1 char set.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if there is a MARC-8 representation of the given Unicode char in the current G1 char set</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetCurrentG0CharEntry(System.Char)">
+            <summary>
+            Returns the MARC8 translation of a given Unicode char from the char set currently 
+            loaded as the G0 char set.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if there is a MARC-8 representation of the given Unicode char in the current G0 char set</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetCurrentG1CharEntry(System.Char)">
+            <summary>
+            Returns the MARC8 translation of a given Unicode char from the char set currently 
+            loaded as the G0 char set.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if there is a MARC-8 representation of the given Unicode char in the current G0 char set</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetCharEntry(System.Char,System.Int32)">
+            <summary>
+            Returns the MARC8 translation of a given Unicode char from the char set currently 
+            loaded as either the G0 or the G1 char set, as specified by the second parameter.
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <param name="charset">whether to use the current G0 charset of the current G1 charset to perform the lookup</param>
+            <returns>true if there is a MARC-8 representation of the given Unicode char in the current G0 char set</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.GetBestCharSet(System.Char)">
+            <summary>
+            Lookups up the MARC8 translation of a given Unicode char and determines which of the MARC-8 
+            char sets that have a translation for that Unicode char is the best one to use. 
+            If one one charset has a translation, that one will be returned.  If more than one charset has a 
+            translation
+            <para>
+            charset - whether to use the current G0 charset of the current G1 charset to perform the lookup
+            </para>
+            </summary>
+            <param name="c">the UCS/Unicode char to look up</param>
+            <returns>true if there is a MARC-8 representation of the given Unicode char in the current G0 char set</returns>
+        </member>
+        <member name="M:MARC4J.Net.Converter.ReverseCodeTable.DeHexify(System.String)">
+            <summary>
+            Utility function for translating a String consisting of one or more two char hex string
+            of the char values into a char array containing those chars
+            </summary>
+            <param name="str">A string containing the two-char hex strings of chars to decode</param>
+            <returns>char[] - an array of chars represented by the </returns>
+        </member>
+        <member name="T:MARC4J.Net.Converter.ReverseCodeTableXmlReader">
+            <summary>
+            Builds a data structure to facilitate <c>UnicodeToAnsel</c>
+            char conversion.
+            </summary>
+        </member>
+        <member name="F:MARC4J.Net.Converter.ReverseCodeTableXmlReader.isocode">
+            Data element identifier 
+        </member>
+        <member name="T:MARC4J.Net.Converter.ReverseCodeTableHash">
+            <summary>
+             <c>ReverseCodeTableHash</c> defines a data structure to facilitate
+             UnicodeToAnsel character conversion.
+            </summary>
+        </member>
+        <member name="T:MARC4J.Net.Converter.UnicodeToAnsel">
+            <summary>
+            <para>
+            A utility to convert UCS/Unicode data to MARC-8.
+            </para>
+            <para>
+            The MARC-8 to Unicode mapping used is the version with the March 2005
+            revisions.
+            </para>
+            
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.UnicodeToAnsel.#ctor">
+            <summary>
+            Creates a new instance and loads the MARC4J supplied Ansel/Unicode
+            conversion tables based on the official LC tables. Loads in the generated class
+            ReverseCodeTableGenerated which contains switch statements to lookup 
+            the MARC-8 encodings for given Unicode characters.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.UnicodeToAnsel.#ctor(System.String)">
+            <summary>
+             Constructs an instance with the specified pathname.
+            
+             Use this constructor to create an instance with a customized code table
+             mapping. The mapping file should follow the structure of LC's XML MARC-8
+             to Unicode mapping (see:
+             http://www.loc.gov/marc/specifications/codetables.xml).
+            </summary>
+            <param name="pathname"></param>
+        </member>
+        <member name="M:MARC4J.Net.Converter.UnicodeToAnsel.#ctor(System.IO.Stream)">
+            <summary>
+            Constructs an instance with the specified input stream.
+            
+            Use this constructor to create an instance with a customized code table
+            mapping. The mapping file should follow the structure of LC's XML MARC-8
+            to Unicode mapping (see:
+            http://www.loc.gov/marc/specifications/codetables.xml).
+            </summary>
+            <param name="?"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MARC4J.Net.Converter.UnicodeToAnsel.Convert(System.Char[])" -->
+        <member name="M:MARC4J.Net.Converter.UnicodeToAnsel.ConvertPortion(System.Char[],System.Text.StringBuilder)">
+            <summary>
+            Does the actual work of converting UCS/Unicode data to MARC-8.
+            
+            <para>
+            If the Unicode data has been normalized into composed form, and the composed character 
+            does not have a corresponding MARC8 character, this routine will normalize that character into
+            its decomposed form, and try to translate that equivalent string into MARC8. 
+            </para>
+            </summary>
+            <param name="data">the UCS/Unicode data in an array of char</param>
+            <param name="sb">the MARC-8 data</param>
+        </member>
+        <member name="T:MARC4J.Net.Converter.UnicodeToIso5426">
+            <summary>
+            A utility to convert UCS/Unicode data to UNIMARC (ISO 5426 charset).
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.UnicodeToIso5426.Convert(System.Char[])">
+            <summary>
+            <para>
+            Converts UCS/Unicode data to UNIMARC (ISO 5426 charset).
+            </para>
+            <para>
+            A question mark (0x3F) is returned if there is no match.
+            </para>
+            </summary>
+            <param name="data">the UCS/Unicode data in an array of char</param>
+            <returns>the UNIMARC (ISO 5426 charset) data</returns>
+        </member>
+        <member name="T:MARC4J.Net.Converter.UnicodeToIso6937">
+            <summary>
+            A utility to convert UCS/Unicode data to ISO 6937.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.Converter.UnicodeToIso6937.Convert(System.Char[])">
+            <summary>
+            <para>
+            Converts UCS/Unicode data to ISO 6937.
+            </para>
+            
+            <para>
+            A question mark (0x3F) is returned if there is no match.
+            </para>
+            </summary>
+            <param name="data">the UCS/Unicode data in an array of char</param>
+            <returns>the ISO 6937 data</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:MARC4J.Net.MarcPermissiveStreamReader" -->
+        <member name="F:MARC4J.Net.MarcPermissiveStreamReader.defaultEncoding">
+            <summary>
+            This represents the expected encoding of the data when a 
+            MARC record does not have a 'a' in character 9 of the leader. 
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MarcPermissiveStreamReader.#ctor(System.IO.Stream,System.Boolean,System.Boolean)">
+            <summary>
+            Constructs an instance with the specified input stream with possible additional functionality
+            being enabled by setting permissive and/or convertToUTF8 to true.
+            <para></para>
+            If permissive and convertToUTF8 are both set to false, it functions almost identically to the
+            MarcStreamReader class.
+            </summary>
+            <param name="input"></param>
+            <param name="permissive"></param>
+            <param name="convertToUTF8"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcPermissiveStreamReader.#ctor(System.IO.Stream,MARC4J.Net.ErrorHandler,System.Boolean)">
+            <summary>
+            Constructs an instance with the specified input stream with possible additional functionality
+            being enabled by passing in an ErrorHandler object and/or setting convertToUTF8 to true.
+            <para></para>
+            If errors and convertToUTF8 are both set to false, it functions almost identically to the
+            MarcStreamReader class.
+            <para></para>
+            If an ErrorHandler object is passed in, that object will be used to log and track any errors 
+            in the records as the records are decoded.  After the next() function returns, you can query 
+            to determine whether any errors were detected in the decoding process.
+            
+            </summary>
+            <param name="input"></param>
+            <param name="errors"></param>
+            <param name="convertToUTF8"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcPermissiveStreamReader.#ctor(System.IO.Stream,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Constructs an instance with the specified input stream with possible additional functionality
+            being enabled by setting permissive and/or convertToUTF8 to true.
+            <para></para>
+            If permissive and convertToUTF8 are both set to false, it functions almost identically to the
+            MarcStreamReader class.
+            <para></para>
+            The parameter defaultEncoding is used to specify the character encoding that is used in the records
+            that will be read from the input stream.   If permissive is set to true, you can specify "BESTGUESS"
+            as the default encoding, and the reader will attempt to determine the character encoding used in the 
+            records being read from the input stream.   This is especially useful if you are working with records 
+            downloaded from an external source and the encoding is either unknown or the encoding is different from
+            what the records claim to be.
+            </summary>
+            <param name="input"></param>
+            <param name="permissive"></param>
+            <param name="convertToUTF8"></param>
+            <param name="defaultEncoding"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcPermissiveStreamReader.#ctor(System.IO.Stream,MARC4J.Net.ErrorHandler,System.Boolean,System.String)">
+            <summary>
+             Constructs an instance with the specified input stream with possible additional functionality
+             being enabled by setting permissive and/or convertToUTF8 to true.
+            <para></para>
+             If errors and convertToUTF8 are both set to false, it functions almost identically to the
+             MarcStreamReader class.
+            <para></para>
+             The parameter defaultEncoding is used to specify the character encoding that is used in the records
+             that will be read from the input stream.   If permissive is set to true, you can specify "BESTGUESS"
+             as the default encoding, and the reader will attempt to determine the character encoding used in the 
+             records being read from the input stream.   This is especially useful if you are working with records 
+             downloaded from an external source and the encoding is either unknown or the encoding is different from
+             what the records claim to be.
+            <para></para>
+             If an ErrorHandler object is passed in, that object will be used to log and track any errors 
+             in the records as the records are decoded.  After the next() function returns, you can query 
+             to determine whether any errors were detected in the decoding process.
+            </summary>
+            <param name="input"></param>
+            <param name="errors"></param>
+            <param name="convertToUTF8"></param>
+            <param name="defaultEncoding"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcPermissiveStreamReader.HasNext">
+            <summary>
+            Returns true if the iteration has more records, false otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MarcPermissiveStreamReader.Next">
+            Returns the next record in the iteration.
+            
+            @return Record - the record object
+        </member>
+        <member name="T:MARC4J.Net.MarcStreamWriter">
+            <summary>
+            Class for writing MARC record objects in ISO 2709 format.
+            
+            <para>
+            The following example reads a file with MARCXML records and outputs the
+            record set in ISO 2709 format:
+            </para>
+            
+            <example>
+            <para>InputStream input = new FileInputStream(&quot;marcxml.xml&quot;);</para>
+            <para>MarcXmlReader reader = new MarcXmlReader(input);				   </para>
+            <para>MarcWriter writer = new MarcStreamWriter(System.out);			   </para>
+            <para>while (reader.hasNext()) {									   </para>
+            <para>    Record record = reader.next();							   </para>
+            <para>    writer.Write(record);										   </para>
+            <para>}																   </para>
+            <para>writer.close();												   </para>
+            </example>
+            
+            <para>
+            To convert characters like for example from UCS/Unicode to MARC-8 register
+            a MARC4J.Net.Converter.CharConverter implementation:
+            </para>
+            
+            <example>
+            <para>InputStream input = new FileInputStream(&quot;marcxml.xml&quot;);</para>
+            <para>MarcXmlReader reader = new MarcXmlReader(input);				   </para>
+            <para>MarcWriter writer = new MarcStreamWriter(System.out);			   </para>
+            <para>writer.setConverter(new UnicodeToAnsel());					   </para>
+            <para>while (reader.hasNext()) {									   </para>
+            <para>    Record record = reader.next();							   </para>
+            <para>    writer.Write(record);										   </para>
+            <para>}																   </para>
+            <para>writer.close();												   </para>
+            </example>
+            </summary>
+        </member>
+        <member name="T:MARC4J.Net.IMarcWriter">
+            <summary>
+            Implement this interface to provide a writer for <code>Record</code> objects.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.IMarcWriter.Write(MARC4J.Net.MARC.IRecord)">
+            <summary>
+            Writes a single <code>Record</code> to the output stream.
+            </summary>
+            <param name="record"></param>
+        </member>
+        <member name="M:MARC4J.Net.IMarcWriter.Close">
+            <summary>
+            Closes the writer.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.IMarcWriter.Converter">
+            <summary>
+            Gets and Sets the character converter.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Constructs an instance and creates a <code>Writer</code> object with
+            the specified output stream.
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamWriter.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            Constructs an instance and creates a <code>Writer</code> object with
+            the specified output stream and character encoding.
+            </summary>
+            <param name="output"></param>
+            <param name="encoding"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamWriter.#ctor(System.IO.Stream,System.Boolean)">
+            <summary>
+            Constructs an instance and creates a <code>Writer</code> object with
+            the specified output stream.
+            </summary>
+            <param name="output"></param>
+            <param name="allowOversizeRecord"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamWriter.#ctor(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            Constructs an instance and creates a <code>Writer</code> object with
+            the specified output stream and character encoding.
+            </summary>
+            <param name="output"></param>
+            <param name="encoding"></param>
+            <param name="allowOversizeRecord"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamWriter.Write(MARC4J.Net.MARC.IRecord)">
+            <summary>
+            Writes a <code>Record</code> object to the writer.
+            </summary>
+            <param name="record"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamWriter.Close">
+            <summary>
+            Closes the writer.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MarcSplitStreamWriter.Write(MARC4J.Net.MARC.IRecord)">
+            <summary>
+            Writes a <code>Record</code> object to the writer.
+            </summary>
+            <param name="record"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:MARC4J.Net.MarcStreamReader" -->
+        <member name="M:MARC4J.Net.MarcStreamReader.#ctor(System.IO.Stream)">
+            <summary>
+            Constructs an instance with the specified input stream.
+            </summary>
+            <param name="input"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamReader.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            Constructs an instance with the specified input stream.
+            </summary>
+            <param name="input"></param>
+            <param name="encoding"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamReader.HasNext">
+            <summary>
+            Returns true if the iteration has more records, false otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MarcStreamReader.Next">
+            <summary>
+            Returns the next record in the iteration.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MarcTranslatedReader.#ctor(MARC4J.Net.IMarcReader,System.Boolean)">
+            <summary>
+            Initialize logging category
+            </summary>
+            <param name="r"></param>
+            <param name="unicodeNormalizeBool"></param>
+        </member>
+        <member name="F:MARC4J.Net.MarcXmlReader.COLLECTION">
+            Constants representing each valid tag type 
+        </member>
+        <member name="F:MARC4J.Net.MarcXmlReader.TAG_ATTR">
+            The tag attribute name string 
+        </member>
+        <member name="F:MARC4J.Net.MarcXmlReader.CODE_ATTR">
+            The code attribute name string 
+        </member>
+        <member name="F:MARC4J.Net.MarcXmlReader.IND_1_ATTR">
+            The first indicator attribute name string 
+        </member>
+        <member name="F:MARC4J.Net.MarcXmlReader.IND_2_ATTR">
+            The second indicator attribute name string 
+        </member>
+        <member name="F:MARC4J.Net.MarcXmlReader.factory">
+            Dictionary for mapping of element strings to constants (int) 
+        </member>
+        <member name="T:MARC4J.Net.MarcXmlWriter">
+            <summary>
+            Class for writing MARC record objects in MARCXML format.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MarcXmlWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Constructs an instance with the specified output stream.
+            <para/>
+            The default character encoding for UTF-8 is used.
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcXmlWriter.#ctor(System.IO.Stream,System.Boolean)">
+            <summary>
+            Constructs an instance with the specified output stream and indentation.
+            <para/>
+            The default character encoding for UTF-8 is used.
+            </summary>
+            <param name="output"></param>
+            <param name="indent"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcXmlWriter.#ctor(System.IO.Stream,System.String)">
+            <summary>
+            Constructs an instance with the specified output stream and character
+            encoding.
+            </summary>
+            <param name="output"></param>
+            <param name="encoding"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcXmlWriter.#ctor(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            Constructs an instance with the specified output stream, character
+            encoding and indentation.
+            </summary>
+            <param name="output"></param>
+            <param name="encoding"></param>
+            <param name="indent"></param>
+        </member>
+        <member name="M:MARC4J.Net.MarcXmlWriter.Write(MARC4J.Net.MARC.IRecord)">
+            <summary>
+            Writes a Record object to the result.
+            </summary>
+            <param name="record"></param>
+        </member>
+        <member name="P:MARC4J.Net.MarcXmlWriter.Converter">
+            <summary>
+            Returns the character converter.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MarcXmlWriter.UnicodeNormalization">
+            <summary>
+            If set to true this writer will perform Unicode normalization on data
+            elements using normalization form C (NFC). The default is false.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MarcXmlWriter.Indent">
+            <summary>
+            Activates or deactivates indentation. Default value is false.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IVariableField.Find(System.String)">
+            <summary>
+            Returns true if the given regular expression matches a subsequence of a
+            data element within the variable field.
+            </summary>
+            <param name="pattern">Regex pattern</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.DataField.ToString">
+            <summary>
+            Returns a string representation of this data field.
+            Example:
+               245 10$aSummerland /$cMichael Chabon.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.ILeader.UnMarshal(System.String)">
+            <summary>
+            Creates a leader object from a string object.
+            Indicator count and subfield code length are defaulted to 2 if they are not integer values.
+            </summary>
+            <param name="ldr">Leader</param>
+        </member>
+        <member name="M:MARC4J.Net.MARC.ILeader.Marshal">
+            <summary>
+            Creates a string object from this leader object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.RecordLength">
+            <summary>
+            Logical record length (positions 00-04).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.RecordStatus">
+            <summary>
+            Record status (position 05).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.TypeOfRecord">
+            <summary>
+            Type of record (position 06).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.ImplDefined1">
+            <summary>
+            Implementation defined values (position 07-08).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.CharCodingScheme">
+            <summary>
+            Character encoding scheme (position 09).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.IndicatorCount">
+            <summary>
+            Indicator count (position 10).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.SubfieldCodeLength">
+            <summary>
+            Subfield code length (position 11).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.BaseAddressOfData">
+            <summary>
+            Base address of data (positions 12-16).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.ImplDefined2">
+            <summary>
+            Implementation defined values (positions 17-19).
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ILeader.EntryMap">
+            <summary>
+            Entry map (positions 20-23).
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MARC.Leader.ToString">
+            <summary>
+            Returns a string representation of this leader.
+            
+            Example: 00714cam a2200205 a 4500
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewControlField(System.String)">
+            <summary>
+            Creates a new control field with the given tag and returns the instance.
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewControlField(System.String,System.String)">
+            <summary>
+            Creates a new control field with the given tag and data and returns the instance.
+            </summary>
+            <param name="tag"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewDataField">
+            <summary>
+            Returns a new data field instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewDataField(System.String,System.Char,System.Char)">
+            <summary>
+            Creates a new data field with the given tag and indicators and returns the
+            instance.
+            </summary>
+            <param name="tag"></param>
+            <param name="ind1"></param>
+            <param name="ind2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewDataField(System.String,System.Char,System.Char,System.String[])">
+            <summary>
+            Creates a new data field with the given tag and indicators and subfields and returns
+            the instance.
+            </summary>
+            <param name="tag"></param>
+            <param name="ind1"></param>
+            <param name="ind2"></param>
+            <param name="?"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewLeader">
+            <summary>
+            Returns a new leader instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewLeader(System.String)">
+            <summary>
+            Creates a new leader with the given <c>String</c> object.
+            </summary>
+            <param name="ldr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewRecord">
+            <summary>
+            Returns a new record instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewRecord(MARC4J.Net.MARC.ILeader)">
+            <summary>
+            Returns a new record instance.
+            </summary>
+            <param name="leader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewRecord(System.String)">
+            <summary>
+            Returns a new record instance.
+            </summary>
+            <param name="leader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewSubfield">
+            <summary>
+            Returns a new subfield instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewSubfield(System.Char)">
+            <summary>
+            Creates a new subfield with the given identifier.
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.MarcFactory.NewSubfield(System.Char,System.String)">
+            <summary>
+            Creates a new subfield with the given identifier and data.
+            </summary>
+            <param name="code"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.AddVariableField(MARC4J.Net.MARC.IVariableField)">
+            <summary>
+            Adds a <code>VariableField</code>.
+            <exception cref="T:MARC4J.Net.MARC.IllegalAddException">when the parameter is not a <code>VariableField</code> instance</exception>
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetVariableFields">
+            <summary>
+            Returns a list of variable fields
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetControlFields">
+            <summary>
+            Returns a list of control fields
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetDataFields">
+            <summary>
+            Returns a list of data fields
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetControlNumberField">
+            <summary>
+            Returns the control number field or <code>null</code> if no control
+            number field is available.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetControlNumber">
+            <summary>
+            Returns the control number or <code>null</code> if no control number is
+            available.
+            
+            This method returns the data for a <code>IControlField</code> with tag
+            001.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetVariableField(System.String)">
+            <summary>
+            Returns the first instance of the variable field with the given tag.
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.GetVariableFields(System.String)">
+            <summary>
+            Returns a list of variable fields with the given tag.
+            </summary>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MARC4J.Net.MARC.IRecord.GetVariableFields(System.String[])" -->
+        <member name="M:MARC4J.Net.MARC.IRecord.Find(System.String)">
+            <summary>
+            Returns a List of VariableField objects that have a data element that
+            matches the given regular expression.
+            </summary>
+            <param name="pattern">regex pattern</param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.Find(System.String,System.String)">
+            <summary>
+            Returns a List of VariableField objects with the given tag that have a
+            data element that matches the given regular expression.
+            </summary>
+            <param name="tag"></param>
+            <param name="pattern"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.IRecord.Find(System.String[],System.String)">
+            <summary>
+            Returns a List of VariableField objects with the given tags that have a
+            data element that matches the given regular expression.
+            </summary>
+            <param name="tag"></param>
+            <param name="pattern"></param>
+            <returns></returns>
+        </member>
+        <member name="P:MARC4J.Net.MARC.IRecord.Type">
+            <summary>
+            Type of record.
+            </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.IRecord.Leader">
+            <summary>
+            Returns the <code>Leader</code>.
+            </summary>
+        </member>
+        <member name="M:MARC4J.Net.MARC.Record.AddVariableField(MARC4J.Net.MARC.IVariableField)">
+            <summary>
+            Adds a <code>VariableField</code> being a <code>ControlField</code>
+            or <code>DataField</code>.
+            If the <code>VariableField</code> is a control number field (001) and
+            the record already has a control number field, the field is replaced with
+            the new instance.
+            </summary>
+            <param name="field"></param>
+        </member>
+        <member name="M:MARC4J.Net.MARC.Record.GetControlNumberField">
+            <summary>
+            Returns the control number field or <code>null</code> if no control
+            number field is available.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MARC4J.Net.MARC.Record.ToString">
+            <summary>
+            Returns a string representation of this record.
+            Example:
+            
+            <para>LEADER 00714cam a2200205 a 4500                                       </para>
+            <para>001 12883376                                                          </para>
+            <para>005 20030616111422.0                                                  </para>
+            <para>008 020805s2002 nyu j 000 1 eng                                       </para>
+            <para>020   $a0786808772                                                    </para>
+            <para>020   $a0786816155 (pbk.)                                             </para>
+            <para>040   $aDLC$cDLC$dDLC                                                 </para>
+            <para>100 1 $aChabon, Michael.                                              </para>
+            <para>245 10$aSummerland /$cMichael Chabon.                                 </para>
+            <para>250   $a1st ed.                                                       </para>
+            <para>260   $aNew York :$bMiramax Books/Hyperion Books for Children,$cc2002.</para>
+            <para>300   $a500 p. ;$c22 cm.                                              </para>
+            <para>650  1$aFantasy.                                                      </para>
+            <para>650  1$aBaseball$vFiction.                                            </para>
+            <para>650  1$aMagic$vFiction.                                               </para>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MARC4J.Net.MARC.ISubfield">
+            <summary>
+             Represents a subfield in a MARC record.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.MARC.ISubfield.Find(System.String)">
+            <summary>
+             Returns true if the given regular expression matches a subsequence of the
+             data element.
+             
+             @param pattern
+                        the regular expression
+             @return true if the pattern matches, false othewise
+             </summary>
+        </member>
+        <member name="P:MARC4J.Net.MARC.ISubfield.Id">
+            <summary>
+             Identifier.
+             The purpose of this identifier is to provide an identifier for
+             persistency.
+             </summary>
+        </member>
+        <member name="M:MARC4J.Net.MARC.Subfield.ToString">
+            <summary>
+            Returns a string representation of this subfield.
+            
+            Example:
+            $aSummerland
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MARC4J.Net.Util.RawRecordReader">
+            <summary>
+            Read a binary marc file, treating the records mostly as opaque blocks of data.
+            Its purpose is to quickly iterate through records looking for one that matches certain
+            simple criteria, at which point the full marc record can be unpacked for more extensive processing
+            </summary>
+        </member>
+    </members>
+</doc>
