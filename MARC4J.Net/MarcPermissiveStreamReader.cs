@@ -479,7 +479,7 @@ namespace MARC4J.Net
             switch (ldr.CharCodingScheme)
             {
                 case 'a':
-                    encoding = "UTF8";
+                    encoding = "UTF-8";
                     break;
                 case ' ':
                     if (convertToUTF8)
@@ -532,7 +532,7 @@ namespace MARC4J.Net
                         {
                             utfCheck = Encoding.UTF8.GetString(recordBuf);
                             byte[] byteCheck = Encoding.UTF8.GetBytes(utfCheck);
-                            encoding = "UTF8";
+                            encoding = "UTF-8";
                             if (recordBuf.Length == byteCheck.Length)
                             {
                                 for (int i = 0; i < recordBuf.Length; i++)
@@ -557,7 +557,7 @@ namespace MARC4J.Net
                     Console.WriteLine(e.StackTrace);
                 }
             }
-            else if (permissive && encoding.Equals("UTF8"))
+            else if (permissive && encoding.Equals("UTF-8"))
             {
                 try
                 {
@@ -601,7 +601,7 @@ namespace MARC4J.Net
                     Console.WriteLine(e.StackTrace);
                 }
             }
-            else if (permissive && !encoding.Equals("UTF8") && convertToUTF8)
+            else if (permissive && !encoding.Equals("UTF-8") && convertToUTF8)
             {
                 try
                 {
@@ -1417,7 +1417,7 @@ namespace MARC4J.Net
         private String GetDataAsString(byte[] bytes)
         {
             String dataElement = null;
-            if (encoding.Equals("UTF-8") || encoding.Equals("UTF8"))
+            if (encoding.Equals("UTF-8") || encoding.Equals("UTF-8"))
             {
                 try
                 {
