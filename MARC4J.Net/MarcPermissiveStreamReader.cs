@@ -846,8 +846,9 @@ namespace MARC4J.Net
                     if (inputrec.ReadByte() != Constants.RT)
                     {
                         errors.AddError("unknown", "n/a", "n/a", Error.FATAL,
-                                        "Expected record terminator at end of record. Unable to continue.");
-                        throw new MarcException("expected record terminator");
+                                        "Expected record terminator at end of record.");
+                        //throw new MarcException("expected record terminator");
+                        inputrec.BaseStream.Position--;
                     }
 
                 }
