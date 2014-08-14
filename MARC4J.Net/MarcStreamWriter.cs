@@ -213,7 +213,7 @@ namespace MARC4J.Net
             output.Write(ldr.CharCodingScheme);
             output.Write(encoding.GetBytes(ldr.IndicatorCount.ToString()));
             output.Write(encoding.GetBytes(ldr.SubfieldCodeLength.ToString()));
-            output.Write(encoding.GetBytes(ldr.BaseAddressOfData.ToString().PadLeft(5, ' ')));
+            output.Write(encoding.GetBytes(ldr.BaseAddressOfData.ToString().PadLeft(5, '0')));
             output.Write(encoding.GetBytes(new String(ldr.ImplDefined2)));
             output.Write(encoding.GetBytes(new String(ldr.EntryMap)));
         }
