@@ -1332,7 +1332,7 @@ namespace MARC4J.Net
         private int RarseRecordLength(byte[] leaderData)
         {
             int length = -1;
-            char[] tmp = Encoding.GetEncoding(encoding).GetChars(leaderData, 0, 5);
+            char[] tmp = Encoding.GetEncoding("ISO-8859-1").GetChars(leaderData, 0, 5);
             try
             {
                 length = int.Parse(new String(tmp));
