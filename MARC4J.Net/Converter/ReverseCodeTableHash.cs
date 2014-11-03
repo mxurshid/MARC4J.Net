@@ -51,7 +51,13 @@ namespace MARC4J.Net.Converter
 
         public override IDictionary<int, char[]> GetCharTable(char c)
         {
-            return charsets[c];
+            IDictionary<int, char[]> value = null;
+            if (charsets.TryGetValue(c, out value))
+            {
+                return value;
+            }
+
+            return null;
         }
 
         public ReverseCodeTableHash(Stream byteStream)
