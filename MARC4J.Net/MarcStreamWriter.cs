@@ -243,7 +243,7 @@ namespace MARC4J.Net
         protected byte[] GetEntry(String tag, int length, int start)
         {
             String entryUse = tag + length.ToString().PadLeft(4, '0') + start.ToString().PadLeft(5, '0');
-            if (length > 99999) hasOversizeLength = true;
+            if (length > 9999) hasOversizeLength = true;
             if (start > 99999) hasOversizeOffset = true;
             return encoding.GetBytes(entryUse);
         }
