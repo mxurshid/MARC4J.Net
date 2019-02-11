@@ -36,8 +36,6 @@ namespace MARC4J.Net
 
         private XmlWriter writer = null;
 
-        private String encoding = "UTF-8";
-
         private CharConverter converter = null;
 
         private bool normalize = false;
@@ -88,22 +86,33 @@ namespace MARC4J.Net
         /// <param name="encoding"></param>
         /// <param name="indent"></param>
         public MarcXmlWriter(Stream output, String encoding, bool indent)
+            : this(output, Encoding.GetEncoding(encoding), indent)
         {
-            this.encoding = encoding;
+        }
+
+        /// <summary>
+        /// Constructs an instance with the specified output stream, character
+        /// encoding and indentation.
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="encoding"></param>
+        /// <param name="indent"></param>
+        public MarcXmlWriter(Stream output, Encoding encoding, bool indent)
+        {
             if (output == null)
             {
                 throw new ArgumentNullException("output", "null OutputStream");
             }
-            if (this.encoding == null)
+            if (encoding == null)
             {
                 throw new ArgumentNullException("encoding", "null encoding");
             }
             try
             {
                 this.indent = indent;
-                writer = XmlWriter.Create(output, new XmlWriterSettings()
+                writer = XmlWriter.Create(output, new XmlWriterSettings
                 {
-                    Encoding = Encoding.GetEncoding(encoding),
+                    Encoding = encoding,
                     Indent = indent
                 });
             }

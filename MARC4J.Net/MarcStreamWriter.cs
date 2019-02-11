@@ -53,7 +53,7 @@ namespace MARC4J.Net
 
         protected BinaryWriter output = null;
 
-        protected Encoding encoding = Encoding.GetEncoding("ISO-8859-1");
+        protected Encoding encoding;
 
         private CharConverter converter = null;
         protected bool allowOversizeEntry = false;
@@ -91,7 +91,7 @@ namespace MARC4J.Net
         /// <param name="output"></param>
         /// <param name="allowOversizeRecord"></param>
         public MarcStreamWriter(Stream output, bool allowOversizeRecord)
-            : this(output, null, allowOversizeRecord)
+            : this(output, "ISO-8859-1", allowOversizeRecord)
         {
         }
 
@@ -102,10 +102,26 @@ namespace MARC4J.Net
         /// <param name="output"></param>
         /// <param name="encoding"></param>
         /// <param name="allowOversizeRecord"></param>
-        public MarcStreamWriter(Stream output, String encoding, bool allowOversizeRecord)
+        public MarcStreamWriter(Stream output, String encoding, bool allowOversizeRecord) : this(output,
+            Encoding.GetEncoding(encoding), allowOversizeRecord)
         {
-            if (encoding != null)
-                this.encoding = Encoding.GetEncoding(encoding);
+        }
+
+        /// <summary>
+        /// Constructs an instance and creates a <code>Writer</code> object with
+        /// the specified output stream and character encoding.
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="encoding"></param>
+        /// <param name="allowOversizeRecord"></param>
+        public MarcStreamWriter(Stream output, Encoding encoding, bool allowOversizeRecord)
+        {
+            if (encoding == null)
+            {
+                throw new ArgumentNullException("encoding", "null encoding");
+            }
+
+            this.encoding = encoding;
             this.output = new BinaryWriter(output);
             this.allowOversizeEntry = allowOversizeRecord;
         }
