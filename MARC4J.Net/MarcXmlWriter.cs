@@ -63,7 +63,7 @@ namespace MARC4J.Net
         /// <param name="output"></param>
         /// <param name="indent"></param>
         public MarcXmlWriter(Stream output, bool indent)
-            : this(output, new UTF8Encoding(true), indent)
+            : this(output, "UTF-8", indent)
         {
         }
 
