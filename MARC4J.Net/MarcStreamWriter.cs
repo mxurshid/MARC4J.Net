@@ -70,7 +70,7 @@ namespace MARC4J.Net
         /// </summary>
         /// <param name="output"></param>
         public MarcStreamWriter(Stream output)
-            : this(output, null)
+            : this(output, "ISO-8859-1")
         {
         }
 

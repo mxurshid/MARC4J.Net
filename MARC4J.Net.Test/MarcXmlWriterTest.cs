@@ -22,7 +22,11 @@ namespace MARC4J.Net.Test
                 {
                     writer.Write(record);
                 }
-                TestUtils.ValidateStringAgainstFile(Encoding.UTF8.GetString(ms.ToArray()), StaticTestRecords.RESOURCES_SUMMERLAND_XML);
+                writer.Close();
+
+                ms.Position = 0;
+                using (var sr = new StreamReader(ms))
+                    TestUtils.ValidateStringAgainstFile(sr.ReadToEnd(), StaticTestRecords.RESOURCES_SUMMERLAND_XML);
             }
         }
 

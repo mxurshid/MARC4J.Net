@@ -195,6 +195,7 @@ namespace MARC4J.Net.Test
 
         public static void ValidateStringAgainstFile(String actual, String fileName)
         {
+            
             var expected = File.ReadAllText(Environment.CurrentDirectory + fileName);
             var comparison = CompareFilesContentsLineByLine(expected, actual);
             if (comparison != null)
