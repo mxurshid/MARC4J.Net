@@ -1,7 +1,26 @@
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.Test.dll
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.Test.pdb
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.dll
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.pdb
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.csprojResolveAssemblyReference.cache
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.dll
-C:\Users\shhurshid\Documents\Visual Studio 2013\Projects\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.pdb
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\bad_leaders_10_11.mrc
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\bad_too_long_plus_2.mrc
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\brkrtest.mrc
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\chabon.mrc
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\illegal-marc-in-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\legal-json-marc-in-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\marc-in-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\marc-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\summerland-indented-marc-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\summerland-marc-in-json-indented.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\summerland-marc-in-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\summerland-marc-json.json
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\summerland.mrc
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\u335.mrc
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\chabon.xml
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\cruel-cruel-indicatorless-summerland.xml
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Resources\summerland.xml
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.Test.dll
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.Test.pdb
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.dll
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\bin\Debug\MARC4J.Net.pdb
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.csproj.CoreCompileInputs.cache
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.csproj.CopyComplete
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.dll
+C:\Users\gidon\Source\Repos\MARC4J.Net\MARC4J.Net.Test\obj\Debug\MARC4J.Net.Test.pdb

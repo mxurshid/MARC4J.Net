@@ -1,122 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MARC4J.Net</RootNamespace>
-    <AssemblyName>MARC4J.Net</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\MARC4J.Net.XML</DocumentationFile>
+    <TargetFrameworks>net4;netstandard2.0</TargetFrameworks>
+    <Version>2.5.4</Version>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE.marc4j</PackageLicenseFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <None Include="..\LICENSE.marc4j">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalSettings.cs" />
-    <Compile Include="InputStream.cs" />
-    <Compile Include="MARC\Verifier.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
+    <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ByteArrayExtensions.cs" />
-    <Compile Include="MemoryStreamExtensions.cs" />
-    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
-    <Compile Include="ErrorHandler.cs" />
-    <Compile Include="MarcCombiningReader.cs" />
-    <Compile Include="MarcDirStreamReader.cs" />
-    <Compile Include="MarcException.cs" />
-    <Compile Include="Converter\CharConverter.cs" />
-    <Compile Include="Converter\AnselToUnicode.cs" />
-    <Compile Include="Converter\CodeTable.cs" />
-    <Compile Include="Converter\CodeTableXmlReader.cs" />
-    <Compile Include="Converter\CodeTableInterface.cs" />
-    <Compile Include="Converter\Iso5426ToUnicode.cs" />
-    <Compile Include="Converter\Iso6937ToUnicode.cs" />
-    <Content Include="Resources\codetables.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Resources\codetablesnocjk.xml" />
-    <Compile Include="Converter\ReverseCodeTable.cs" />
-    <Compile Include="Converter\ReverseCodeTableXmlReader.cs" />
-    <Compile Include="Converter\ReverseCodeTableHash.cs" />
-    <Compile Include="Converter\UnicodeToAnsel.cs" />
-    <Compile Include="Converter\UnicodeToIso5426.cs" />
-    <Compile Include="Converter\UnicodeToIso6937.cs" />
-    <Compile Include="MarcPermissiveStreamReader.cs" />
-    <Compile Include="IMarcReader.cs" />
-    <Compile Include="MarcSplitStreamWriter.cs" />
-    <Compile Include="MarcStreamReader.cs" />
-    <Compile Include="MarcStreamWriter.cs" />
-    <Compile Include="MarcTranslatedReader.cs" />
-    <Compile Include="IMarcWriter.cs" />
-    <Compile Include="MarcXmlReader.cs" />
-    <Compile Include="MarcXmlWriter.cs" />
-    <Compile Include="MARC\IControlField.cs" />
-    <Compile Include="MARC\IDataField.cs" />
-    <Compile Include="MARC\IllegalAddException.cs" />
-    <Compile Include="MARC\ControlField.cs" />
-    <Compile Include="MARC\DataField.cs" />
-    <Compile Include="MARC\Leader.cs" />
-    <Compile Include="MARC\DefaultMarcFactory.cs" />
-    <Compile Include="MARC\Record.cs" />
-    <Compile Include="MARC\SortedMarcFactory.cs" />
-    <Compile Include="MARC\SortedRecord.cs" />
-    <Compile Include="MARC\Subfield.cs" />
-    <Compile Include="MARC\VariableField.cs" />
-    <Compile Include="MARC\ILeader.cs" />
-    <Compile Include="MARC\MarcFactory.cs" />
-    <Compile Include="MARC\IRecord.cs" />
-    <Compile Include="MARC\ISubfield.cs" />
-    <Compile Include="MARC\IVariableField.cs" />
-    <Compile Include="Util\RawRecord.cs" />
-    <Compile Include="Util\RawRecordReader.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  
 </Project>
+

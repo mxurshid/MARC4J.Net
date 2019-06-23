@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MARC4J.Net", "MARC4J.Net\MARC4J.Net.csproj", "{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MARC4J.Net", "MARC4J.Net\MARC4J.Net.csproj", "{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MARC4J.Net.Test", "MARC4J.Net.Test\MARC4J.Net.Test.csproj", "{F99897BB-8D1F-4986-A5F7-35E0B83056B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MARC4J.Net.Test", "MARC4J.Net.Test\MARC4J.Net.Test.csproj", "{F99897BB-8D1F-4986-A5F7-35E0B83056B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +13,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6EF2E6-9F5B-4502-95FD-5867095AE3B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F99897BB-8D1F-4986-A5F7-35E0B83056B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EE577CC-FB06-4DAC-8C44-726732F91235}
 	EndGlobalSection
 EndGlobal
